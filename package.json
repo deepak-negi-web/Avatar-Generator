@@ -1,0 +1,17 @@
+{
+  "name": "avatar",
+  "version": "1.0.0",
+  "description": "Get your Avatar",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deepak Negi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "query-selector": "^2.0.0",
+    "request": "^2.88.2"
+  }
+}
