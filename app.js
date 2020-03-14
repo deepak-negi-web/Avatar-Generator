@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.set('view engine', 'ejs');
+
+
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
@@ -43,7 +46,12 @@ app.post("/", function(req1, res1) {
 
   const request = https.request(url, options, function(response) {
     if (response.statusCode === 200) {
-      res1.sendFile(__dirname + "/success.html");
+      var url = "https://joeschmoe.io/api/v1/" + gender + "/" + fname + " " + lname
+      res1.render("success", {
+        apiUrl: url,
+        userName: fname + " " + lname
+      });
+
     } else {
       res1.sendFile(__dirname + "/failure.html");
     }
@@ -53,6 +61,7 @@ app.post("/", function(req1, res1) {
   });
   request.write(jsonData);
   request.end();
+
 });
 
 app.post("/failure", function(req2, res2) {
